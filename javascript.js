@@ -121,7 +121,6 @@ document.getElementById("login-form").addEventListener("submit", function(e) {
   const username = document.getElementById("login-username").value;
   const password = document.getElementById("login-password").value;
   loginUser(username, password);
-  window.location.href ="file:///D:/masaustu/arama_kiralama.html"
 
 });
 
@@ -134,7 +133,7 @@ document.getElementById("register-form").addEventListener("submit", function(e) 
   // Şu an için sadece giriş yapıyoruz.
   loginUser(email, password);
 
-  window.location.href ="file:///D:/masaustu/arama_kiralama.html"
+
 });
 
 document.getElementById("register-link").addEventListener("click", function(e) {
@@ -144,10 +143,15 @@ document.getElementById("register-link").addEventListener("click", function(e) {
 });
 
 function loginUser(username, password) {
+  // Kullanıcı zaten kayıtlıysa uyarı ver
+  if (currentUser) {
+    alert("Zaten bir hesap var. Kitap aramaya devam edebilirsiniz.");
+    return;
+  }
+
+  // Yeni bir hesap oluşturulduğunda ana sayfaya yönlendir
   currentUser = username;
   document.getElementById("auth-container").style.display = "none";
   document.getElementById("book-form").style.display = "block";
-
-  window.location.href ="file:///D:/masaustu/arama_kiralama.html"
-
+  window.location.href = "arama_kiralama.html"; // Ana sayfaya geri dön
 }
