@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Library Management System</h1>
+    <div id="auth-container">
+      <form id="login-form">
+        <h2>Giriş Yap</h2>
+        <input type="text" id="login-username" placeholder="Kullanıcı Adı" required>
+        <input type="password" id="login-password" placeholder="Parola" required>
+        <input type="submit" value="Giriş Yap">
+      </form>
+      <p>Eğer hesabınız yoksa <a href="#" id="register-link">kayıt olun</a>.</p>
+      <form id="register-form" style="display: none;">
+        <h2>Kayıt Ol</h2>
+        <input type="text" id="register-name" placeholder="Ad Soyad" required>
+        <input type="email" id="register-email" placeholder="E-mail" required>
+        <input type="password" id="register-password" placeholder="Parola" required>
+        <input type="submit" value="Kayıt Ol">
+      </form>
+    </div>
+    <form id="book-form" style="display: none;">
+      <input type="text" id="title"placeholder="Kitap Adı" required>
+      <input type="text" id="author" placeholder="Yazar" required>
+      <input type="submit" value="Kitap Ekle">
+    </form>
+    <div id="book-list"></div>
+  </div>
+  <script src="javascript.js"></script>
+  <script>
+    document.getElementById("register-link").addEventListener("click", function(e) {
+      e.preventDefault(); // Sayfanın yeniden yüklenmesini engellemek için
+      document.getElementById("login-form").style.display = "none";
+      document.getElementById("register-form").style.display = "block";
+    });
+  </script>
+</body>
+</html>
