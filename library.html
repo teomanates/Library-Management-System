@@ -32,13 +32,31 @@
     </form>
     <div id="book-list"></div>
   </div>
-  <script src="javascript.js"></script>
+  
   <script>
     document.getElementById("register-link").addEventListener("click", function(e) {
       e.preventDefault(); // Sayfanın yeniden yüklenmesini engellemek için
       document.getElementById("login-form").style.display = "none";
       document.getElementById("register-form").style.display = "block";
     });
-  </script>
+    
+    
+  document.getElementById("login-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Formun submit işleminin sayfayı yeniden yüklemesini engeller
+
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    // Basit doğrulama
+    if (username === "admin" && password === "12345") {
+        // Doğrulama başarılı ise arama ve kiralama sayfasına yönlendirilir
+        window.location.href = "arama_kiralama.html";
+    } else {
+        // Doğrulama başarısız ise kullanıcıya uyarı verilir
+        alert("Kullanıcı adı veya parola hatalı. Lütfen tekrar deneyin.");
+    }
+  }); </script>
+  
+  <script src="javascript.js"></script>
 </body>
 </html>
