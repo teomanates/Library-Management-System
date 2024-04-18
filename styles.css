@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url(/masaustu/bg.png);
+  background-image: url(bg.png);
 }
 
 .container {
